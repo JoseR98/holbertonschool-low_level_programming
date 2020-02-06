@@ -1,7 +1,9 @@
 #include <stdio.h>
 /**
-*Print a message with puts command
-*/
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");

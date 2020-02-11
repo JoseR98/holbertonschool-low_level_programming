@@ -4,11 +4,8 @@
   */
 void times_table(void)
 {
-	int filas;
-	int columnas;
-	int resultado;
+	int filas = 0, columnas, resultado;
 
-	filas = 0;
 	while (filas < 10)
 	{
 		columnas = 0;

@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
   * main - print number from 0 to 100.
+  *
   * Return: always 0.
   */
 int main(void)

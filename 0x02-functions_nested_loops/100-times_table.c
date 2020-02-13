@@ -10,8 +10,7 @@ void print_times_table(int n)
 	filas = 0;
 	for (filas = 0; filas <= n && n > 0 && n < 15; filas++)
 	{
-		colum = 0;
-		while (colum <= n)
+		for (colum = 0; colum <= n; colum++)
 		{
 			result = colum * filas;
 			if (colum == 0)
@@ -41,7 +40,6 @@ void print_times_table(int n)
 					_putchar((result % 10) + '0');
 				}
 			}
-			colum++;
 		}
 		_putchar('\n');
 	}

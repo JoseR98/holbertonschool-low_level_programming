@@ -6,7 +6,7 @@
 void more_numbers(void)
 {
 	int f;
-	int r;/* Number of times that is gona print*/
+	int r;
 
 	for (r = 0; r <= 9; r++)
 	{
@@ -15,7 +15,6 @@ void more_numbers(void)
 			if (f > 9)
 			{
 				_putchar((f / 10) + '0');
-
 			}
 			_putchar((f % 10) + '0');
 		}

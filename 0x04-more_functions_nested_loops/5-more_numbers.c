@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * more_numbers - Print from 0 to 14 ten times.
- *
+ * Return: print 10 lines from 0 to 14.
  */
 void more_numbers(void)
 {

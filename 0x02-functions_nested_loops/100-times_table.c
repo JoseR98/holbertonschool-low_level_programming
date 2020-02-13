@@ -5,9 +5,8 @@
   */
 void print_times_table(int n)
 {
-	int colum, filas = 0, result;
+	int colum, filas, result;
 
-	filas = 0;
 	for (filas = 0; filas <= n && n > 0 && n < 15; filas++)
 	{
 		for (colum = 0; colum <= n; colum++)

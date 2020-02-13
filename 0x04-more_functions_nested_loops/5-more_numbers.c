@@ -8,7 +8,7 @@ void more_numbers(void)
 	int f;
 	int r;/* Number of times that is gona print*/
 
-	for (r = 0; r <= 10; r++)
+	for (r = 0; r <= 9; r++)
 	{
 		for (f = 0; f <= 14; f++)
 		{

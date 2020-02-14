@@ -5,13 +5,16 @@
   */
 int main(void)
 {
-	long int numero = 612852475143, i = 2;
+	long int numero = 612852475143, primo = 2;
 
-	while (i != numero)
+	while (primo <= numero)
 	{
 		if ((numero % i) == 0)
 		{
-			numero = numero / i;
+			if (numero != primo)
+			{
+				numero = numero / i;
+			}
 		}
 		else
 		{

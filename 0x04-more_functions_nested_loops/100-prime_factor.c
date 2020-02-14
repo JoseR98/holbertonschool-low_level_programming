@@ -7,7 +7,7 @@ int main(void)
 {
 	long int numero = 612852475143, i = 2;
 
-	while (numero != i)
+	while (i != numero)
 	{
 		if ((numero % i) == 0)
 		{

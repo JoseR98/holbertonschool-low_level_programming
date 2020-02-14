@@ -9,11 +9,11 @@ int main(void)
 
 	while (primo <= numero)
 	{
-		if ((numero % i) == 0)
+		if ((numero % primo) == 0)
 		{
 			if (numero != primo)
 			{
-				numero = numero / i;
+				numero = numero / primo;
 			}
 		}
 		else

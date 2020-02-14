@@ -18,9 +18,9 @@ int main(void)
 		}
 		else
 		{
-			i++;
+			printf("%ld", primo);
 		}
 	}
-	printf("%ld \n", i);
+	primo++;
 	return (0);
 }

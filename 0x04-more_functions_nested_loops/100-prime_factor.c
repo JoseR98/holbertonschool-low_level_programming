@@ -1,7 +1,9 @@
 #include <stdio.h>
+
 /**
-  * main - Print largest prime factor
-  * Return: i
+  * main - prints largest prime factor
+  *
+  * Return: Always 0.
   */
 int main(void)
 {
@@ -15,12 +17,12 @@ int main(void)
 			{
 				numero = numero / primo;
 			}
+			else
+			{
+				printf("%ld\n", i);
+			}
 		}
-		else
-		{
-			printf("%ld", primo);
-		}
-		primo++;
+		i++;
 	}
 	return (0);
 }

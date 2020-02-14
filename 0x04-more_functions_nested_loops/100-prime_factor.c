@@ -19,7 +19,7 @@ int main(void)
 			}
 			else
 			{
-				printf("%ld\n", i);
+				printf("%ld\n", primo);
 			}
 		}
 		i++;

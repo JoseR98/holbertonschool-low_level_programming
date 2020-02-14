@@ -20,7 +20,7 @@ int main(void)
 		{
 			printf("%ld", primo);
 		}
+		primo++;
 	}
-	primo++;
 	return (0);
 }

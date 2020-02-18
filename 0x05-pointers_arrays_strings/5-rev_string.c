@@ -19,9 +19,9 @@ void rev_string(char *s)
 	i--; /* To make sure we aren't in the '\0' position. */
 	for (j = 0; *(s + j) != *(s + i); j++)
 	{
-		temp = *(s + j);
-		*(s + j) = *(s + i);
-		*(s + i) = temp;
+		temp = *(s + i);
+		*(s + i) = *(s + j);
+		*(s + j) = temp;
 		i--;
 	}
 }

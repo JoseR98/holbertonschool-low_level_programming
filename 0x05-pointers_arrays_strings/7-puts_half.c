@@ -29,11 +29,12 @@ void puts_half(char *str)
 	}
 	else
 	{
-		second_half2 = (length_st - 1) / 2;
+		second_half2 = ((length_st - 1) / 2) + 1;
 		while (*(str + second_half2) != '\0')
 		{
 			_putchar(*(str + second_half2));
-			second_half++;
+			second_half2++;
 		}
+		_putchar('\n');
 	}
 }

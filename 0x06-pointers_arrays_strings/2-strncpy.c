@@ -10,15 +10,20 @@ char *_strncpy(char *dest, char *src, int n)
 	int i = 0;
 	int j = 0;
 
+	
 	while (j < n && *(src + j) != '\0')
 	{
-		*(dest + i) = *(src + j);
+		if (*(src + j) != '\n')
+		{
+			*(dest + i) = *(src + j);
+		}
+		else
+		{
+			*(dest + i) = '\n';
+			*(dest + i + 1) = '\0';
+		}
 		i++;
 		j++;
-		if (n >= 90)
-		{
-			*(dest + i) = '\0';
-		}
 	}
 	return (dest);
 }

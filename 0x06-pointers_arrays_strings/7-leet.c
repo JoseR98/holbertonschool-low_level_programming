@@ -11,6 +11,7 @@ char *leet(char *s)
 	int j;
 	char letters[] = "aAeEoOtTlL";
 	char numbers[] = "4433007711";
+
 	while (s[i] != '\0')
 	{
 		j = 0;

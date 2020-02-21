@@ -9,7 +9,7 @@ char *cap_string(char *s)
 {
 	int i;
 	int j;
-	char p[12];
+	char p[13];
 
 	p[0] = ' ';
 	p[1] = '\t';
@@ -24,6 +24,7 @@ char *cap_string(char *s)
 	p[10] = ')';
 	p[11] = '{';
 	p[12] = '}';
+	p[13] = '\0';
 	for (i = 0; *(s + i) != '\0'; i++)
 	{
 		for (j = 0; p[j] != '\0'; j++)

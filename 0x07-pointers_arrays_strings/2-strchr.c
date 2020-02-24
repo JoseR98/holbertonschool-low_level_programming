@@ -19,7 +19,7 @@ char *_strchr(char *s, char c)
 	}
 	if (s[i] == '\0')
 	{
-		return (NULL);
+		return ('\0');
 	}
 	else
 	{

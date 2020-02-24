@@ -16,14 +16,14 @@ char *_strpbrk(char *s, char *accept)
 		{
 			if (s[a] == accept[b])
 			{
-				break;
+				return (&s[a]);
 			}
 		}
-		if (accept[b] != '\0')
+		a++;
+		if (s[a] == '\0')
 		{
 			break;
 		}
-		a++;
 	}
-	return (&s[a]);
+	return (0);
 }

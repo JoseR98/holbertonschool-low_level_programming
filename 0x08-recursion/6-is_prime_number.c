@@ -3,7 +3,7 @@
  * primo - determine if a number is prime or not
  * @x: integer value
  * @n: integer value
- * Return: 1 if is prime 0 otherwise 
+ * Return: 1 if is prime 0 otherwise
  */
 int primo(int x, int n)
 {

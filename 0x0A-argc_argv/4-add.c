@@ -9,7 +9,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int sum = 0, i, j;
+	int i, j;
+	long int sum = 0;
 
 	if (argv[1] == '\0')
 	{
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
 		{
 			for (j = 0; argv[i][j] != '\0'; j++)
 			{
-				if (argv[i][j] > 47 && argv[i][j] < 58 )
+				if (argv[i][j] > 47 && argv[i][j] < 58)
 				{
 					continue;
 				}
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
 			}
 			sum += atoi(argv[i]);
 		}
+		printf("%ld\n", sum);
 	}
-	printf("%d\n", sum);
 	return (0);
 }

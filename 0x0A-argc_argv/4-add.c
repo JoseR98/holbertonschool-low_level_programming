@@ -7,11 +7,9 @@
  * @argv: array of arguments of the program
  * Return: 1 if an error occurs and 0 if succes
  */
-int number(char *s);
-
 int main(int argc, char *argv[])
 {
-	int sum, i;
+	int sum = 0, i, j;
 
 	if (argv[1] == '\0')
 	{
@@ -21,36 +19,21 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (number(argv[i]))/* determine if the argument is a number*/
+			for (j = 0; argv[i][j] != '\0'; j++)
 			{
-				printf("Error\n");
-				return (1);
+				if (argv[i][j] > 47 && argv[i][j] < 58 )
+				{
+					continue;
+				}
+				else
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
-			else
-			{
-				sum += atoi(argv[i]);
-			}
+			sum += atoi(argv[i]);
 		}
-		printf("%d\n", sum);
 	}
+	printf("%d\n", sum);
 	return (0);
-}
-/**
- *
- *
- *
- *
- */
-int number(char *s)
-{
-	int j;
-
-	for (j = 0; s[j] != '\0'; j++)
-	{
-		if (isdigit(s[j]))
-		{
-			return (0);
-		}
-	}
-	return (1);
 }

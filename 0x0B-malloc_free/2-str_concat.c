@@ -19,6 +19,10 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
+	else if (s1 == NULL && s2 == NULL)
+	{
+		return (NULL);
+	}
 	else
 	{
 		for (k = 0; k < (size1 + size2 + 1); k++)

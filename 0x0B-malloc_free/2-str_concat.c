@@ -12,14 +12,20 @@ char *str_concat(char *s1, char *s2)
 	unsigned int size1, size2, k;
 	char *concat;
 
+	if (s1 == NULL)
+	{
+		s1 = malloc(1);
+		*s1 = '\0';
+	}
+	if (s2 == NULL)
+	{
+		s2 = malloc(1);
+		*s2 = '\0';
+	}
 	size1 = size_s1(s1);
 	size2 = size_s2(s2);
 	concat = malloc(sizeof(char) * (size1 + size2 + 1));
 	if (concat == NULL)
-	{
-		return (NULL);
-	}
-	else if (s1 == NULL && s2 == NULL)
 	{
 		return (NULL);
 	}

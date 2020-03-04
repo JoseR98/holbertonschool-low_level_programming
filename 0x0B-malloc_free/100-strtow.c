@@ -24,7 +24,7 @@ char **strtow(char *str)
 	{
 		while (str[j] != '\0')
 		{
-			if ((str[j] > 64 && str[j] < 91) || (str[j] > 96 && str[j] < 123))
+			if ((str[j] > 64 && str[j] < 91) || (str[j] > 96 && str[j] < 123) || (str[j] > 32 && str[j] < 127))
 			{
 				if ((str[j + 1] > 64 && str[j + 1] < 91) || (str[j + 1] > 96 && str[j + 1] < 123))
 				{

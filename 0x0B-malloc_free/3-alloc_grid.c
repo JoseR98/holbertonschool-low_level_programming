@@ -2,8 +2,8 @@
 
 /**
  * alloc_grid - Fill an array of 2 dimensions
- * @width:
- * @height:
+ * @width: width of the 2d array
+ * @height: height of the 2d array
  * Return: integer pointer to a 2 dimension array
  */
 int **alloc_grid(int width, int height)

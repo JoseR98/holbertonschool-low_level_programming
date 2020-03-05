@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 /**
  * string_nconcat - concatenate first string with n bytes from the second one
  * @s1: pointer to first string

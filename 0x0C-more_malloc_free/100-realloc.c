@@ -1,8 +1,10 @@
 #include "holberton.h"
 /**
- *
- *
- *
+ * _realloc - Reallocate a memory block
+ * @ptr: pointer to a memory allocation
+ * @old_size: old size of memory allocation
+ * @new_size: new size for the new pointer
+ * Return: void
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
@@ -31,6 +33,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		new_p[i] = old_p[i];
 	}
-	new_p = (void *)new_p;
+	free(old_p);
 	return (new_p);
 }

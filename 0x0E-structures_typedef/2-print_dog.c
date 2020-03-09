@@ -1,9 +1,9 @@
 #include "dog.h"
 #include <stdio.h>
 /**
- * new_dog -
- *
- * Return: 
+ * print_dog - print structure
+ * @d: pointer to the structure address
+ * Return: void
  */
 void print_dog(struct dog *d)
 {

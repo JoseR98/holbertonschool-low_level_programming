@@ -15,17 +15,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *store_name, *store_owner;
 	dog_t *new_dog;
 
-	store_name = malloc(sizeof(char) * (_strlen(name) + 1));
+	store_name = malloc(sizeof(char) * (_strlen(name) + 1));/*safe memory space for name*/
 	if (store_name == NULL)
 		return (NULL);
-	store_owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	store_owner = malloc(sizeof(char) * (_strlen(owner) + 1));/*safe memory space for owner*/
 	if (store_owner == NULL)
 	{
-		free(store_name);
+		free(store_name);/* free space of name because it has been already asigned*/
 		return (NULL);
 	}
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
+	new_dog = malloc(sizeof(dog_t));/*safe memory for the whole structure*/
+	if (new_dog == NULL)/* if there is not space for the structure we free name and owner storage*/
 	{
 		free(store_name);
 		free(store_owner);

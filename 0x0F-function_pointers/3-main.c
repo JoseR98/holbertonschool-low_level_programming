@@ -23,8 +23,9 @@ int main(int argc, char **argv)
 	if (((*operator == '/') || (*operator == '%')) && num2 == 0)
 	{
 		printf("Error\n");
-		exit(99);
+		exit(100);
 	}
+
 	sum = (*get_op_func(operator))(num1, num2);
 	printf("%d\n", sum);
 	return (0);

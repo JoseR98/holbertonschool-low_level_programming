@@ -10,22 +10,21 @@
 int main(int argc, char **argv)
 {
 	int num1, num2, sum;
-	char *operator = argv[2];
+	char *operator;
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
-
-	if (argc != 4 || argv == NULL)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+	operator = argv[2];
+	num2 = atoi(argv[3]);
 	if (((*operator == '/') || (*operator == '%')) && num2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
-
+	num1 = atoi(argv[1]);
 	sum = (*get_op_func(operator))(num1, num2);
 	printf("%d\n", sum);
 	return (0);

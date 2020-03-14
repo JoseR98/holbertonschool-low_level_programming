@@ -64,7 +64,7 @@ void print_all(const char * const format, ...)
 
 	va_start(str_numbers, format);
 
-	while (format[i] != '\0' && format)
+	while (format && format[i])
 	{
 		j = 0;
 		while (formats[j].symbol != NULL)

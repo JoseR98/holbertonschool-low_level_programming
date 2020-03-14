@@ -37,7 +37,7 @@ void print_string(va_list str_numbers)
 	
 	if (p == NULL)
 		p = "(nill)";
-	printf("%s", va_arg(str_numbers, char *));
+	printf("%s", p);
 }
 /**
  * print_all - prints anything

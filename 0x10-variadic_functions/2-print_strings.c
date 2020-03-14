@@ -19,7 +19,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			printf("%s", string);
 		if (string == NULL)
 			printf("(nill)");
-		if (i != n - 1 && operator != NULL)
+		if (i != n - 1 && separator != NULL)
 			printf("%s", separator);
 	}
 	printf("\n");

@@ -32,12 +32,15 @@ void print_floats(va_list str_numbers)
  * @str_numbers: parameter
  */
 void print_string(va_list str_numbers)
-{
-	char *p = va_arg(str_numbers, char *);
-	
-	if (p == NULL)
-		p = "(nill)";
-	printf("%s", p);
+{	
+	if (str_numbers)
+	{
+		printf("%s", va_arg(str_numbers, char *));
+	}
+	else
+	{
+		printf("(nil)");
+	}
 }
 /**
  * print_all - prints anything
@@ -49,6 +52,7 @@ void print_all(const char * const format, ...)
 	int i = 0;
 	int j;
 	va_list str_numbers;
+	char *separator = "";
 
 	f_t formats[] = {
 		{"c", print_chars},
@@ -67,9 +71,9 @@ void print_all(const char * const format, ...)
 		{
 			if (formats[j].symbol[0] == format[i])
 			{
+				printf("%s", separator);
 				formats[j].p(str_numbers);
-				if (formats[j + 1].symbol != NULL)
-					printf(", ");
+				separator = ", ";
 				break;
 			}
 			j++;

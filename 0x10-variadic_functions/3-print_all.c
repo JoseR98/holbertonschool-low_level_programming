@@ -33,6 +33,10 @@ void print_floats(va_list str_numbers)
  */
 void print_string(va_list str_numbers)
 {
+	char *p = va_arg(str_numbers, char *);
+	
+	if (p == NULL)
+		p = "(nill)";
 	printf("%s", va_arg(str_numbers, char *));
 }
 /**

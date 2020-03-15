@@ -57,7 +57,7 @@ void print_all(const char * const format, ...)
 		{"s", print_string},
 		{NULL, NULL}
 	};
-	char *separator = "";
+	char *separate = "";
 	va_start(str_numbers, format);
 
 	while (format[i] != '\0' && format)
@@ -67,9 +67,9 @@ void print_all(const char * const format, ...)
 		{
 			if (formats[j].symbol[0] == format[i])
 			{
-				printf("%s", separator);
+				printf("%s", separate);
 				formats[j].p(str_numbers);
-				separator = ", ";
+				separate = ", ";
 				break;
 			}
 			j++;

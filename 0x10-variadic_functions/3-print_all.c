@@ -46,9 +46,7 @@ void print_string(va_list str_numbers)
  */
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	int j;
-	va_list str_numbers;
+	unsigned int i, j;
 
 	f_t formats[] = {
 		{"c", print_chars},
@@ -57,10 +55,12 @@ void print_all(const char * const format, ...)
 		{"s", print_string},
 		{NULL, NULL}
 	};
+	va_list str_numbers;
 	char *separate = "";
-	va_start(str_numbers, format);
 
-	while (format[i] != '\0' && format)
+	va_start(str_numbers, format);
+	i = 0;
+	while (format[i] && format)
 	{
 		j = 0;
 		while (formats[j].symbol != NULL)

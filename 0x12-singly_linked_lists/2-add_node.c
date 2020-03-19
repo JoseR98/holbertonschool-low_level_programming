@@ -1,41 +1,27 @@
 #include "lists.h"
 
-int _strlen(const char *s);
-
 /**
- * add_node - add node to the list.
- * @str: string data
- * @head: head of list
- * Return: the list.
+ * add_node - add node to a linked list at the beginning
+ * @head: address passed by reference
+ * @str: value for the new node
+ * Return: new node
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *add;
+	list_t *new;
+	unsigned int len_str;
 
-	add = malloc(sizeof(list_t));
-	if (add == NULL)
-		return (NULL);
-	add->str = strdup(str);
-	add->len = _strlen(str);
-	add->next = *head;
-	*head = add;
-
-	return (add);
-}
-/**
- * _strlen - returns the length of a string
- * @s: char array pointer
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _strlen(const char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
 	{
-		i++;
+		return (NULL);
 	}
-
-	return (i);
+	for (len_str = 0; str[len_str] != '\0'; len_str++)
+		;
+	new->str = strdup(str);
+	new->len = len_str;
+	new->next = *head;
+	*head = new;
+	return (new);
 }
+

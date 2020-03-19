@@ -9,19 +9,31 @@
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new;
-	unsigned int len_str;
 
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 	{
 		return (NULL);
 	}
-	for (len_str = 0; str[len_str] != '\0'; len_str++)
-		;
 	new->str = strdup(str);
-	new->len = len_str;
+	new->len = _strlen(str);
 	new->next = *head;
 	*head = new;
 	return (new);
+}
+/**
+ * _strlen - determine the length of a string
+ * @s: string
+ * Return: integer type
+ */
+int _strlen(const char *s)
+{
+	int counter = 0;
+
+	while (s[counter] != '\0')
+	{
+		counter++;
+	}
+	return (counter);
 }
 

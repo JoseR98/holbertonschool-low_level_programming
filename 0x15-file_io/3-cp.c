@@ -15,19 +15,19 @@ int main(int ac, char **av)
 	/**Open first file*/
 	fd1 = open(av[1], O_RDWR);
 	if (fd1 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from), exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
 	/**Read the content of file_from*/
 	rd1 = read(fd1, buf1, 1024);
 	if (rd1 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from), exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
 	/**Open second file or create it*/
 	fd2 = open(av[2], O_RDWR | O_TRUNC | O_CREAT, 0664);
 	if (fd2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to), exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	/**Write content of file_from to file_to*/
 	wf2 = write(fd2, buf1, rd1);
 	if (wf2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to), exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	free(buf1);
 	closed1 = close(fd1);
 	closed2 = close(fd2);

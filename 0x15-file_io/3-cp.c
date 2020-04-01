@@ -11,12 +11,9 @@ int main(int ac, char **av)
 	char *buf1 = malloc(sizeof(char) * 1024);
 
 	if (ac != 3)
-		dprintf(2, "Usage: cp file_from file_to\n"), exit(97);
-	/**Verify if arguments aren't null*/
-	if (f_from == NULL || f_to == NULL)
-		return;
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 	/**Open first file*/
-	fd1 = open(f_from, O_RDWR);
+	fd1 = open(av[1], O_RDWR);
 	if (fd1 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from), exit(98);
 	/**Read the content of file_from*/
@@ -24,7 +21,7 @@ int main(int ac, char **av)
 	if (rd1 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from), exit(98);
 	/**Open second file or create it*/
-	fd2 = open(f_to, O_RDWR | O_TRUNC | O_CREAT, 0664);
+	fd2 = open(av[2], O_RDWR | O_TRUNC | O_CREAT, 0664);
 	if (fd2 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to), exit(99);
 	/**Write content of file_from to file_to*/

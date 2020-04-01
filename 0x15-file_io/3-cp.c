@@ -1,9 +1,4 @@
 #include "holberton.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-void cp_files(const char *f_from, const char *f_to);
 /**
  * main - main function
  * @ac: number of arguments

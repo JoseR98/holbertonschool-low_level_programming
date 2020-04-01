@@ -35,6 +35,9 @@ int create_file(const char *filename, char *text_content)
 		else
 			return (1);
 	}
+	close(cf);
+	close(fd);
+	close(wf);
 	/**If there is nothing to write inside the file create it empty*/
 	return (1);
 }

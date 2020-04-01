@@ -1,0 +1,84 @@
+#include "holberton.h"
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+void cp_files(const char *f_from, const char *f_to);
+/**
+ * main - main function
+ * @ac: number of arguments
+ * @av: array of arguments
+ * Return: 0 on success
+ */
+int main(int ac, char **av)
+{
+	if (ac != 3)
+	{
+		dprintf(2, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	cp_files(av[1], av[2]);
+	return (0);
+}
+
+/**
+ * cp_files - copy the content of file_from to file_to
+ * @f_from: name of the file from which the content is copied
+ * @f_to: name of the file in which is going to be pasted the info
+ * Return: void
+ */
+void cp_files(const char *f_from, const char *f_to)
+{
+	int fd1, fd2, rd1, wf2, closed1, closed2;
+	char *buf1;
+
+	buf1 = malloc(sizeof(char) * 1024);
+
+	/**Verify if arguments aren't null*/
+	if (f_from == NULL || f_to == NULL)
+		return;
+
+	/**Open first file*/
+	fd1 = open(f_from, O_RDWR);
+	if (fd1 == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", f_from);
+		exit(98);
+	}
+	/**Read the content of file_from*/
+	rd1 = read(fd1, buf1, 1024);
+	if (rd1 == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", f_from);
+		exit(98);
+	}
+	/**Open second file or create it*/
+	fd2 = open(f_to, O_RDWR | O_TRUNC | O_CREAT, 0664);
+	if (fd2 == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", f_to);
+		exit(99);
+	}
+	/**Write content of file_from to file_to*/
+	wf2 = write(fd2, buf1, 1024);
+	if (wf2 == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", f_to);
+		exit(99);
+	}
+	free(buf1);
+	closed1 = close(fd1);
+	closed2 = close(fd2);
+
+	if (closed1 == -1)
+	{
+		dprintf(2, "Error: Can't close fd %i", fd1);
+		exit(100);
+	}
+	if (closed2 == -1)
+	{
+		dprintf(2, "Error: Can't close fd %i", fd2);
+		exit(100);
+	}
+}
+

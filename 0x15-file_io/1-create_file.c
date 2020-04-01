@@ -11,18 +11,13 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, cf, wf;
+	int fd, closed, wf;
 
 	/**Verify if there is name for the file*/
 	if (filename == NULL)
 		return (-1);
-	/**Create file*/
-	cf = creat(filename, 0600);
-	/**Verify if the file was created*/
-	if (cf == -1)
-		return (-1);
-	/**Open file in write mode*/
-	fd = open(filename, O_WRONLY);
+	/**Open file with read and write permissions*/
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
 	/**Verify if the file was open*/
 	if (fd == -1)
 		return (-1);
@@ -30,14 +25,13 @@ int create_file(const char *filename, char *text_content)
 	if (text_content != NULL)
 	{
 		wf = write(fd, text_content, _strlen(text_content));
-		if (wf == -1)
+		closed = close(fd);
+		if (wf == -1 || close == -1)
 			return (-1);
 		else
 			return (1);
+
 	}
-	close(cf);
-	close(fd);
-	close(wf);
 	/**If there is nothing to write inside the file create it empty*/
 	return (1);
 }

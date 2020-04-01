@@ -1,8 +1,4 @@
 #include "holberton.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 /**
  * append_text_to_file - append text_content to the end of the file
  * @filename: name of the file to open

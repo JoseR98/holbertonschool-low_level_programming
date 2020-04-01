@@ -1,8 +1,4 @@
 #include "holberton.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 /**
  * create_file - creates a file on disk
  * @filename: Name of the file to create

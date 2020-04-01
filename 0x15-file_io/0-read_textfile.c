@@ -1,8 +1,4 @@
 #include "holberton.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 /**
  * read_textfile - reads .txt file and print on stdoutput
  * @filename: pointer to file passed by prompt line

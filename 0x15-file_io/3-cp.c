@@ -42,28 +42,28 @@ void cp_files(const char *f_from, const char *f_to)
 	fd1 = open(f_from, O_RDWR);
 	if (fd1 == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", f_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
 		exit(98);
 	}
 	/**Read the content of file_from*/
 	rd1 = read(fd1, buf1, 1024);
 	if (rd1 == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", f_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
 		exit(98);
 	}
 	/**Open second file or create it*/
 	fd2 = open(f_to, O_RDWR | O_TRUNC | O_CREAT, 0664);
 	if (fd2 == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", f_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
 		exit(99);
 	}
 	/**Write content of file_from to file_to*/
-	wf2 = write(fd2, buf1, 1024);
+	wf2 = write(fd2, buf1, rd1);
 	if (wf2 == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", f_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
 		exit(99);
 	}
 	free(buf1);
@@ -72,12 +72,12 @@ void cp_files(const char *f_from, const char *f_to)
 
 	if (closed1 == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i", fd1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i", fd1);
 		exit(100);
 	}
 	if (closed2 == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i", fd2);
 		exit(100);
 	}
 }

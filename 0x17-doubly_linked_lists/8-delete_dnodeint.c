@@ -15,9 +15,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (-1);
 	if (index == 0)
 	{
-		*head = temp->next;
-		temp->prev = NULL;
+		enter_node = temp->next;
+		enter_node->prev = NULL;
+		/*temp->prev = NULL;*/
 		free(temp);
+		*head = enter_node;
 		return (1);
 	}
 	for (i = 0; i < index && temp != NULL; i++)

@@ -20,8 +20,7 @@ void hash_table_delete(hash_table_t *ht)
 		{
 			prev = tempn;
 			free(tempn->key);
-			if (tempn->value != NULL)
-				free(tempn->value);
+			free(tempn->value);
 			tempn = tempn->next;
 			free(prev);
 		}

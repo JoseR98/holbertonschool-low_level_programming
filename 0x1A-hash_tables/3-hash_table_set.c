@@ -12,10 +12,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new = NULL, *temp = NULL;
 
-	if (key == NULL || value == NULL || ht == NULL)
+	if (key == NULL || value == NULL || ht == NULL || ht->size == 0)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
-	if (ht->array[index] == NULL) /*Validate if the position is empty or not*/
+	if (ht->array[index] == NULL) /*Validate if the slot is empty or not*/
 	{
 		ht->array[index] = malloc(sizeof(hash_node_t));
 		if (ht->array[index] == NULL)
@@ -27,27 +27,26 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (ht->array[index]->value == NULL)
 			return (0);
 		ht->array[index]->next = NULL;
+		return (1);
 	}
-	else
+	/*a collision occurs*/
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+		return (0);
+	temp = ht->array[index];
+	while (temp != NULL)
 	{
-		new = malloc(sizeof(hash_node_t));
-		if (new == NULL)
-			return (0);
-		temp = ht->array[index];
-		while (temp != NULL)
+		if (strcmp(key, temp->key) == 0)
 		{
-			if (strcmp(key, temp->key) == 0)
-			{
-				free(temp->value);
-				temp->value = strdup(value);
-				if (temp->value == NULL)
-					return (0);
-				return (1);
-			}
-			temp = temp->next;
+			free(temp->value);
+			temp->value = strdup(value);
+			if (temp->value == NULL)
+				return (0);
+			return (1);
 		}
-		new->next = ht->array[index];
-		ht->array[index] = new;
+		temp = temp->next;
 	}
+	new->next = ht->array[index];
+	ht->array[index] = new;
 	return (1);
 }

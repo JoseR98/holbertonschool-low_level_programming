@@ -19,10 +19,22 @@ def island_perimeter(grid):
         while col < len(grid[row]):
             actual_pos = grid[row][col]
             if actual_pos == 1:
-                prev_row = grid[row - 1][col]
-                next_row = grid[row + 1][col]
-                left_col = grid[row][col - 1]
-                right_col = grid[row][col + 1]
+                try:
+                    prev_row = grid[row - 1][col]
+                except Exception:
+                    prev_row = 0
+                try:
+                    next_row = grid[row + 1][col]
+                except Exception:
+                    next_row = 0
+                try:
+                    left_col = grid[row][col - 1]
+                except Exception:
+                    left_col = 0
+                try:
+                    right_col = grid[row][col + 1]
+                except Exception:
+                    right_col = 0
                 if next_row == 0:
                     perimeter += 1
                 if prev_row == 0:
